@@ -1,5 +1,7 @@
 flask
+sqlalchemy
 flask-sqlalchemy
 flask_restful
 flask-wtf
 environs
+hashids
