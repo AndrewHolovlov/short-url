@@ -11,23 +11,19 @@ app.config.from_object('config')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
-app.url_map
 # Initialize db
 database.init_app(app)
 
 
 @app.before_first_request
 def create_database():
-    # database.drop_db()
-    # database.create_db()
+    database.drop_db()
+    database.create_db()
     pass
 
 
 # Add resource
-api.add_resource(ShortUrlView, '/')
-
-# Register blueprints
-# app.register_blueprint(shortener_module)
+api.add_resource(ShortUrlView, '/', '/<string:token>')
 
 
 # Errors handling
