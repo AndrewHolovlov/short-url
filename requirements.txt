@@ -2,6 +2,8 @@ flask
 sqlalchemy
 flask-sqlalchemy
 flask_restful
+flask-apispec
 flask-wtf
 environs
 hashids
+marshmallow

@@ -14,7 +14,7 @@ class ShortUrl(db.Model):
     long_url = db.Column(db.String)
     created_at = db.Column(db.DateTime)
     expiry_at = db.Column(db.DateTime)
-    number_of_clicked = db.Column(db.Integer, default=0)
+    number_of_clicks = db.Column(db.Integer, default=0)
 
     def __init__(self, long_url, life_span):
         self.token = self.generate_token(url=long_url)
