@@ -17,7 +17,6 @@ class ShortUrl(db.Model):
     number_of_clicks = db.Column(db.Integer, default=0)
 
     def __init__(self, long_url, life_span):
-        self.token = self.generate_token(url=long_url)
         self.long_url = long_url
         self.created_at = datetime.datetime.now()
         self.expiry_at = self.created_at + datetime.timedelta(days=life_span)
@@ -27,6 +26,6 @@ class ShortUrl(db.Model):
         return 'http://192.168.1.2:8080/' + self.token
 
     @staticmethod
-    def generate_token(url: str):
+    def generate_token(url: str, _id: int):
         hashids = Hashids(salt=url, min_length=7)
-        return hashids.encode(1)
+        return hashids.encode(_id)

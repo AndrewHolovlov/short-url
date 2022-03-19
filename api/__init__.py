@@ -6,7 +6,7 @@ from flask import Flask, jsonify, make_response
 from flask_restful import Api
 
 from api import database
-from api.shortener.views import CreateShortUrl, RedirectByShortUrl
+from api.shortener.views import CreateShortUrl, RedirectByShortUrl, ClickStatistics
 
 # create Flask app
 app = Flask(__name__.split('.')[0])
@@ -29,6 +29,7 @@ def create_database():
 # Add resource
 api.add_resource(CreateShortUrl, '/')
 api.add_resource(RedirectByShortUrl, '/<string:token>')
+api.add_resource(ClickStatistics, '/<string:token>/statistics')
 
 
 app.config.update({
@@ -45,6 +46,7 @@ docs = FlaskApiSpec(app)
 
 docs.register(CreateShortUrl)
 docs.register(RedirectByShortUrl)
+docs.register(ClickStatistics)
 
 
 # Errors handling
