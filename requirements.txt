@@ -7,3 +7,5 @@ flask-wtf
 environs
 hashids
 marshmallow
+gunicorn
+psycopg2-binary
