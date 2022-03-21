@@ -1,3 +1,4 @@
+import os
 import datetime
 
 from hashids import Hashids
@@ -23,7 +24,7 @@ class ShortUrl(db.Model):
 
     @hybrid_property
     def short_url(self):
-        return 'http://192.168.1.2:8080/' + self.token
+        return os.environ.get('PROD_URL', 'http://192.168.1.2:8080/') + self.token
 
     @staticmethod
     def generate_token(url: str, _id: int):
