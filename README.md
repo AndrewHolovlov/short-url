@@ -32,3 +32,14 @@ If not, please, follow the instructions below
 2. Create a Pull Request (PR) from your working branch to master
 3. If there are any errors and PR can't be merged, resolve the issues locally and then push again to your branch
 4. Merge PR
+
+# Docker
+
+1. docker build
+```shell
+docker build --tag short-url .
+```
+2. docker run
+```shell
+docker run -d -p 8080:5000 short-url
+```
