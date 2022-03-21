@@ -53,7 +53,7 @@ class CreateShortUrl(MethodResource, Resource):
         obj.token = ShortUrl.generate_token(url=obj.long_url, _id=obj.id)
         db.session.commit()
 
-        return obj
+        return obj, 201
 
 
 class RedirectByShortUrl(MethodResource, Resource):

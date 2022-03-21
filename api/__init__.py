@@ -21,8 +21,8 @@ database.init_app(app)
 
 @app.before_first_request
 def create_database():
-    database.drop_db()
-    database.create_db()
+    # database.drop_db()
+    # database.create_db()
     pass
 
 
