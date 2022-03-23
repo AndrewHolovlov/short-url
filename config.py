@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from dotenv import load_dotenv
 
@@ -10,10 +11,11 @@ DEBUG = os.environ.get('DEBUG')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+
 # Database
-# SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'local.db')
-SQLALCHEMY_DATABASE_URI = f'postgresql://{os.environ.get("DB_USER")}:{os.environ.get("DB_PASSWORD")}@' \
-                          f'{os.environ.get("DB_HOST")}:{os.environ.get("DB_PORT")}/{os.environ.get("DB_NAME")}'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'local.db')
+# SQLALCHEMY_DATABASE_URI = f'postgresql://{os.environ.get("DB_USER")}:{os.environ.get("DB_PASSWORD")}@' \
+#                           f'{os.environ.get("DB_HOST")}:{os.environ.get("DB_PORT")}/{os.environ.get("DB_NAME")}'
 DATABASE_CONNECT_OPTIONS = {}
 
 # Application threads. A common general assumption is
@@ -28,3 +30,7 @@ CSRF_SESSION_KEY = os.environ.get('CSRF_SESSION_KEY')
 BUNDLE_ERRORS = True
 
 
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
+JWT_ACCESS_TOKEN_EXPIRES = datetime.timedelta(seconds=20)
+JWT_REFRESH_TOKEN_EXPIRES = datetime.timedelta(days=30)
+JWT_ERROR_MESSAGE_KEY = 'message'

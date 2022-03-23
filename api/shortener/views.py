@@ -1,6 +1,6 @@
 import datetime
 
-from flask import redirect, request, jsonify
+from flask import redirect, request
 from flask_restful import Resource
 
 from flask_apispec import marshal_with, doc, use_kwargs

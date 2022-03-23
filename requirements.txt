@@ -4,8 +4,12 @@ flask-sqlalchemy
 flask_restful
 flask-apispec
 flask-wtf
+flask-bcrypt
+flask_marshmallow
+flask-jwt-extended
+marshmallow-sqlalchemy
+psycopg2-binary
 environs
 hashids
 marshmallow
 gunicorn
-psycopg2-binary
